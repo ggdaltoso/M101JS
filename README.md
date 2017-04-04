@@ -1,4 +1,4 @@
-###Homework 1.1
+### Homework 1.1
 
 ```
 cd "Homework 1.1"
@@ -10,7 +10,7 @@ db.hw1_1.find()
 // { "_id": ObjectId("..."), "answer": "Hello from MongoDB!" }
 ```
 
-###Homework 1.2
+### Homework 1.2
 
 ```
 cd "Homework 1.2"
@@ -21,7 +21,7 @@ node app.js
 // Answer: I like kittens
 ```
 
-###Homework 1.3
+### Homework 1.3
 
 ```
 cd "Homework 1.3"
