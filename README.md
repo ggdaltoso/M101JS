@@ -29,6 +29,6 @@ mongorestore dump
 npm install
 node app.js 
 
-// Open your browser and navigate do http://localhost:3000 and you will see:
+// Open your browser and navigate to http://localhost:3000. You will see:
 // Hello, Agent 007.
 ```
