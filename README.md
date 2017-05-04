@@ -63,3 +63,16 @@ db.movieDetails.find({ year: 2013, rated: "PG-13", "awards.wins": 0 }, { _id: 0,
 
 // { "title" : "A Decade of Decadence, Pt. 2: Legacy of Dreams" }
 ```
+
+### Homework 2.2
+
+```
+cd "Homework 2.2"
+// use the dump of the Homework 2.1
+db.movieDetails.find({}, { title: 1, _id: 0 }) :heavy_check_mark:
+db.movieDetails.find({}, { title: 1 }) :x:
+db.movieDetails.find({ title: "" }, { title: 1 }) :x:
+db.movieDetails.find({}, { title }) :x:
+db.movieDetails.find({ year: 1964 }, { title: 1, _id: 0 }) :heavy_check_mark:
+db.movieDetails.find({ title: "Muppets from Space" }, { title: 1 }) :x:
+```
