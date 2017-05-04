@@ -96,3 +96,13 @@ db.movieDetails.find({ genres: ["Comedy", "Crime"] }).count()
 
 // 20
 ```
+
+### Homework 2.5
+
+```
+cd "Homework 2.5"
+// use the dump from Homework 2.1
+db.movieDetails.find({ genres: { $all: ["Comedy", "Crime"] } }).count()
+
+// 56
+```
