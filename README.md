@@ -76,3 +76,13 @@ db.movieDetails.find({}, { title })
 db.movieDetails.find({ year: 1964 }, { title: 1, _id: 0 }) ✓
 db.movieDetails.find({ title: "Muppets from Space" }, { title: 1 })
 ```
+
+### Homework 2.3
+
+```
+cd "Homework 2.3"
+// use the dump of the Homework 2.1
+db.movieDetails.find({ "countries.1": "Sweden" }).count()
+
+// 6
+```
