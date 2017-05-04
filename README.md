@@ -106,3 +106,7 @@ db.movieDetails.find({ genres: { $all: ["Comedy", "Crime"] } }).count()
 
 // 56
 ```
+
+### Homework 2.6
+
+[$set](https://docs.mongodb.com/manual/reference/operator/update/set/): The $set operator replaces the value of a field with the specified value.
