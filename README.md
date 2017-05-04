@@ -116,24 +116,36 @@ db.movieDetails.find({ genres: { $all: ["Comedy", "Crime"] } }).count()
 ```
 cd "Homework 2.7 - Challenge"
 // use the dump from Homework 2.1
-db
-    .movieDetails
-    .insertOne(
-        {
-            title: "Challenge 1",
-            "awards" : {
-                "oscars" : [
-                    {"award": "bestAnimatedFeature", "result": "won"},
-                    {"award": "bestMusic", "result": "won"},
-                    {"award": "bestPicture", "result": "nominated"},
-                    {"award": "bestSoundEditing", "result": "nominated"},
-                    {"award": "bestScreenplay", "result": "nominated"}
-                ],
-                "wins" : 56,
-                "nominations" : 86,
-                "text" : "Won 2 Oscars. Another 56 wins and 86 nominations."
-            }
-        })
+db.movieDetails.insertOne({
+  title: "Challenge 1",
+  "awards": {
+    "oscars": [
+      {
+        "award": "bestAnimatedFeature",
+        "result": "won"
+      },
+      {
+        "award": "bestMusic",
+        "result": "won"
+      },
+      {
+        "award": "bestPicture",
+        "result": "nominated"
+      },
+      {
+        "award": "bestSoundEditing",
+        "result": "nominated"
+      },
+      {
+        "award": "bestScreenplay",
+        "result": "nominated"
+      }
+    ],
+    "wins": 56,
+    "nominations": 86,
+    "text": "Won 2 Oscars. Another 56 wins and 86 nominations."
+  }
+})
 
 db.movieDetails.find({ "awards.oscars.award": "bestPicture" })
 
@@ -169,4 +181,54 @@ db.movieDetails.find({ "awards.oscars.award": "bestPicture" })
     "text": "Won 2 Oscars. Another 56 wins and 86 nominations."
   }
 }
+```
+
+### Homework 2.8
+
+```
+cd "Homework 2.8 - Challenge 2"
+// use the dump from Homework 2.1
+
+db.movieDetails.find({
+  "imdb.votes": {
+    $lt: 10000
+  },
+  "year": {
+    $gt: 2010,
+    $lte: 2013
+  },
+  $and: [
+    {
+      "tomato.consensus": null
+    },
+    {
+      "tomato.consensus": {
+        $exists: true
+      }
+    }
+  ]
+}).count()
+
+// 11
+
+db.movieDetails.updateMany({
+  "imdb.votes": {
+    $lt: 10000
+  },
+  "year": {
+    $gt: 2010,
+    $lte: 2013
+  },
+  $and: [
+    {
+      "tomato.consensus": null
+    },
+    {
+      "tomato.consensus": {
+        $exists: true
+      }
+    }
+  ]
+}, { $set: { "tomato.consensus": "" }})
+
 ```
