@@ -110,3 +110,63 @@ db.movieDetails.find({ genres: { $all: ["Comedy", "Crime"] } }).count()
 ### Homework 2.6
 
 [$set](https://docs.mongodb.com/manual/reference/operator/update/set/): The $set operator replaces the value of a field with the specified value.
+
+### Homework 2.7
+
+```
+cd "Homework 2.7 - Challenge"
+// use the dump from Homework 2.1
+db
+    .movieDetails
+    .insertOne(
+        {
+            title: "Challenge 1",
+            "awards" : {
+                "oscars" : [
+                    {"award": "bestAnimatedFeature", "result": "won"},
+                    {"award": "bestMusic", "result": "won"},
+                    {"award": "bestPicture", "result": "nominated"},
+                    {"award": "bestSoundEditing", "result": "nominated"},
+                    {"award": "bestScreenplay", "result": "nominated"}
+                ],
+                "wins" : 56,
+                "nominations" : 86,
+                "text" : "Won 2 Oscars. Another 56 wins and 86 nominations."
+            }
+        })
+
+db.movieDetails.find({ "awards.oscars.award": "bestPicture" })
+
+/* result: */
+{
+  "_id": ObjectId("590b192e29d4029bf2df7897"),
+  "title": "Challenge 1",
+  "awards": {
+    "oscars": [
+      {
+        "award": "bestAnimatedFeature",
+        "result": "won"
+      },
+      {
+        "aw ard": "bestMusic",
+        "result": "won"
+      },
+      {
+        "award": "bestPicture",
+        "result": "nominated"
+      },
+      {
+        "award": "bestSoundEditing",
+        "result": "nominated"
+      },
+      {
+        "award ": "bestScreenplay",
+        "result": "nominated"
+      }
+    ],
+    "wins": 56,
+    "nominations": 86,
+    "text": "Won 2 Oscars. Another 56 wins and 86 nominations."
+  }
+}
+```
