@@ -68,7 +68,7 @@ db.movieDetails.find({ year: 2013, rated: "PG-13", "awards.wins": 0 }, { _id: 0,
 
 ```
 cd "Homework 2.2"
-// use the dump of the Homework 2.1
+// use the dump from Homework 2.1
 db.movieDetails.find({}, { title: 1, _id: 0 }) ✓
 db.movieDetails.find({}, { title: 1 })
 db.movieDetails.find({ title: "" }, { title: 1 })
@@ -81,8 +81,18 @@ db.movieDetails.find({ title: "Muppets from Space" }, { title: 1 })
 
 ```
 cd "Homework 2.3"
-// use the dump of the Homework 2.1
+// use the dump from Homework 2.1
 db.movieDetails.find({ "countries.1": "Sweden" }).count()
 
 // 6
+```
+
+### Homework 2.4
+
+```
+cd "Homework 2.4"
+// use the dump from Homework 2.1
+db.movieDetails.find({ genres: ["Comedy", "Crime"] }).count()
+
+// 20
 ```
