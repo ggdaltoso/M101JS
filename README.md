@@ -27,7 +27,7 @@ node app.js
 cd "Homework 1.3"
 mongorestore dump
 npm install
-node app.js 
+node app.js
 
 // Open your browser, navigate to http://localhost:3000 and you will see:
 // Hello, Agent 007.
@@ -38,7 +38,7 @@ node app.js
 ```
 cd "Homework 1.4"
 npm install
-node app.js 
+node app.js
 
 // Open your browser, navigate to http://localhost:3000 and you will see a form. Type these values in the fields:
 // title: Jaws | year: 1975 | imdb: tt0073195
@@ -50,4 +50,16 @@ use video
 db.movies.find()
 
 // { "_id": ObjectId("..."), "title": "Jaws", "year": "1975", "imdb": "tt0073195" }
+```
+
+### Homework 2.1
+
+```
+cd "Homework 2.1"
+mongorestore dump
+mongo
+use video
+db.movieDetails.find({ year: 2013, rated: "PG-13", "awards.wins": 0 }, { _id: 0, title: 1 })
+
+// { "title" : "A Decade of Decadence, Pt. 2: Legacy of Dreams" }
 ```
